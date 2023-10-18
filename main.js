@@ -62,8 +62,10 @@ const app = new Vue({
                 .then(response => response.json())
                 .then(data => {
                   this.personajeActual = {
+                    name: data.name,
                     status: data.status,
-                    species: data.species
+                    species: data.species,
+                    gender: data.gender
                   };
                   this.guardarPersonajeLocal(this.personajeActual, url);
                   this.mostrarModal();

@@ -18,7 +18,10 @@
                         <button type="button" @click="ocultarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>{{personajeActual?.status}}</p>
+                        <h4>{{ personajeActual?.name }}</h4>
+                        <p>Status: {{ personajeActual?.status }}</p>
+                        <p>Especie: {{ personajeActual?.species }}</p>
+                        <p>Género: {{ personajeActual?.gender }}</p>
                         <img :src="personajeActual?.specie" alt="">
                     </div>
                     <div class="modal-footer">
