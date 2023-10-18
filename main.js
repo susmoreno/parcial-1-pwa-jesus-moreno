@@ -56,8 +56,8 @@ const app = new Vue({
             fetch(url)
               .then(response => response.json())
               .then(data => {
-                const { name, species, image , gender } = data;
-                this.personajeElegido = { name, species, image, gender };
+                const { name, status, species, image , gender } = data;
+                this.personajeElegido = { name, status, species, image, gender};
                 this.mostrarModal();
               });
           }
