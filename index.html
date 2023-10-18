@@ -8,6 +8,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
-    <script src="main.js"></script> 
+
+    <div id="app">
+        <div class="modal" tabindex="-1" style="display: block" v-show="estadoModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Personaje Vivo</h5>
+                        <button type="button" @click="ocultarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{personajeActual?.status}}</p>
+                        <img :src="personajeActual?.specie" alt="">
+                    </div>
+                    <div class="modal-footer">
+                        <button @click="ocultarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card col col-4" v-for="personaje in personajes">
+                <div class="card-body">
+                    <h5 class="card-title">{{personaje.name}}</h5>
+                    <p class="card-text">{{personaje.url}}</p>
+                    <button @click="(e)=>{verPersonaje(personaje.url)}">Obtener información</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <ul>
+                <li v-for="personaje in storage">
+                    {{personaje.url}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
