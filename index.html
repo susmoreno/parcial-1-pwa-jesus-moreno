@@ -14,15 +14,15 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Personaje Vivo</h5>
+                        <h3 class="modal-title">Personaje Vivo</h3>
                         <button type="button" @click="ocultarModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <h4>{{ personajeActual?.name }}</h4>
-                        <p>Status: {{ personajeActual?.status }}</p>
-                        <p>Especie: {{ personajeActual?.species }}</p>
-                        <p>Género: {{ personajeActual?.gender }}</p>
-                        <img :src="personajeActual?.specie" alt="">
+                        <h4>{{ personajeElegido?.name }}</h4>
+                        <p>Status: {{ personajeElegido?.status }}</p>
+                        <p>Especie: {{ personajeElegido?.species }}</p>
+                        <p>Género: {{ personajeElegido?.gender }}</p>
+                        <img :src="personajeElegido?.image" alt="personaje">
                     </div>
                     <div class="modal-footer">
                         <button @click="ocultarModal" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

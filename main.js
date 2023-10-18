@@ -2,7 +2,7 @@ const app = new Vue({
     el: '#app',
     data: {
         estadoModal: false,
-        personajeActual: null,
+        personajeElegido: null,
         titulo: 'Personaje de Rick and Morty',
         personajes: [],
         storage: []
@@ -53,24 +53,13 @@ const app = new Vue({
             this.estadoModal = false;
         },
         verPersonaje(url) {
-            const personaje = this.obtenerPersonajeStorage(url);
-            if (personaje) {
-              this.personajeActual = personaje;
-              this.mostrarModal();
-            } else {
-              fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                  this.personajeActual = {
-                    name: data.name,
-                    status: data.status,
-                    species: data.species,
-                    gender: data.gender
-                  };
-                  this.guardarPersonajeLocal(this.personajeActual, url);
-                  this.mostrarModal();
-                });
-            }
+            fetch(url)
+              .then(response => response.json())
+              .then(data => {
+                const { name, species, image , gender } = data;
+                this.personajeElegido = { name, species, image, gender };
+                this.mostrarModal();
+              });
           }
     },
     async mounted() {
