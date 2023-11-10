@@ -43,8 +43,8 @@
         <div class="row">
             <ul>
                 <h5 class="text-light p-4">LOCAL STORAGE</h5>
-                <li class="text-light" v-for="personaje in storage">
-                    {{personaje.url}}
+                <li class="text-light" v-for="personaje in storage" :key="personaje.url">
+                    {{ personaje.url }}
                 </li>
             </ul>
         </div>
